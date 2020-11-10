@@ -1,0 +1,82 @@
+<wxs src="../../app.wxs" module="appWxs"></wxs>
+
+<view class="page-container">
+    <view class="page-header">
+        <image class="{{ userInfo.avatar ? 'active' : '' }}"
+        src="{{ appWxs.pathResolve(userInfo.avatar || defaultImage) }}" ></image>
+        <text class="name">{{ userInfo.nick_name }}</text>
+        <text class="btn-edit" bindtap="updateUserInfo">修改个人资料</text>
+    </view>
+    <view class="page-content">
+        <view class="first">
+            <view class="my-order" bindtap="gotoOrder">
+                <text class="title">我的订单</text>
+                <text class="iconfont icon-arrow-right icon"></text>
+            </view>
+            <view class="ul-wrapper">
+                <view class="item">
+                    <navigator>
+                        <image src="http://192.168.110.100:1314/images/profile/operate1.png" mode="widthFix"></image>
+                        <text class="name">待付款</text>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <image src="http://192.168.110.100:1314/images/profile/operate2.png" mode="widthFix"></image>
+                        <text class="name">待收货</text>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <image src="http://192.168.110.100:1314/images/profile/operate3.png" mode="widthFix"></image>
+                        <text class="name">评论</text>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <image src="http://192.168.110.100:1314/images/profile/operate4.png" mode="widthFix"></image>
+                        <text class="name">退款/售后</text>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view class="second">
+            <view class="my-propety">
+                <image src="http://192.168.110.100:1314/images/profile/my-property.png" mode="widthFix"></image>
+                <text class="name">我的资产</text>
+                <text class="other">优惠券/积分</text>
+                <text class="iconfont icon-arrow-right icon"></text>
+            </view>
+            <view class="my-collection">
+                <image src="http://192.168.110.100:1314/images/profile/my-collection.png" mode="widthFix"></image>
+                <text class="name">我的收藏</text>
+                <text class="iconfont icon-arrow-right icon"></text>
+            </view>
+            <view class="my-address" bindtap="gotoAddress">
+                <image src="http://192.168.110.100:1314/images/profile/my-address.png" mode="widthFix"></image>
+                <text class="name">地址管理</text>
+                <text class="iconfont icon-arrow-right icon"></text>
+            </view>
+        </view>
+        <view class="third">
+            <view class="my-license">
+                <image src="http://192.168.110.100:1314/images/profile/my-license.png" mode="widthFix"></image>
+                <text class="name">资质证件</text>
+                <text class="iconfont icon-arrow-right icon"></text>
+            </view>
+            <view class="my-protocol">
+                <image src="http://192.168.110.100:1314/images/profile/my-protocol.png" mode="widthFix"></image>
+                <text class="name">协议规则</text>
+                <text class="iconfont icon-arrow-right icon"></text>
+            </view>
+            <view class="my-help">
+                <image src="http://192.168.110.100:1314/images/profile/my-help.png" mode="widthFix"></image>
+                <text class="name">帮助与反馈</text>
+                <text class="iconfont icon-arrow-right icon"></text>
+            </view>
+        </view>
+        <view class="forth">
+            
+        </view>
+    </view>
+</view>

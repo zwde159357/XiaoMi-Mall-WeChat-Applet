@@ -1,0 +1,233 @@
+<!--pages/detail/detail.wxml-->
+<wxs src="../../app.wxs" module="appWxs"></wxs>
+
+<view class="page-container" wx:if="{{ bannerImgs.length !== 0 }}">
+    <view class="page-header {{ topShow ? 'active' : '' }}">
+        <text class="top-text {{ activeItem === 1 ? 'active' : ''}}" bindtap="scrollTo" data-id="1">商品</text>
+        <text class="top-text {{ activeItem === 2 ? 'active' : ''}}" bindtap="scrollTo" data-id="2">评价</text>
+        <text class="top-text {{ activeItem === 3 ? 'active' : ''}}" bindtap="scrollTo" data-id="3">详情</text>
+        <text class="top-text {{ activeItem === 4 ? 'active' : ''}}" bindtap="scrollTo" data-id="4">推荐</text>
+    </view>
+    <view class="other-detail-title {{ titleShow ? 'active' : '' }}">
+        <text class="active">概述</text>
+        <text>参数</text>
+        <text>安装服务</text>
+        <text>常见问题</text>
+    </view>
+    <view class="page-content">
+        <view class="banner-wrapper">
+            <swiper autoplay="true" indicator-dots="true" 
+            indicator-active-color="#ccff00" circular="true">
+                <swiper-item wx:for="{{ bannerImgs }}" wx:key="item">
+                    <image src="{{ appWxs.pathResolve(item) }}" mode="widthFix"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="detail-price">
+            <text class="price">￥{{ product.price }}</text>
+            <image src="http://192.168.110.100:1314/images/detail/collection.png" mode="widthFix"></image>
+        </view>
+        <view class="detail-name">
+            <text class="icon-small-rice">小米自营</text>
+            <text class="name">{{ product.name }}</text>
+        </view>
+        <view class="detail-brief">
+            <text class="brief">{{ product.brief }}</text>
+        </view>
+        <view class="detail-introduce">
+            <text class="introduce">小米空调大放价！抽奖赢小米65英寸电视！爆款直降1000元！</text>
+        </view>
+        <view class="detail-buy">
+            <text class="now-buy">立即抢购>>></text>
+        </view>
+        <view class="detail-null"></view>
+        <view class="detail-red">
+            <image src="http://192.168.110.100:1314/images/detail/red.png" mode="widthFix"></image>
+        </view>
+        <view class="detail-null"></view>
+        <view class="detail-num" bindtap="popCart">
+            <text class="title">已选</text>
+            <text class="content">{{ count }}</text>
+            <text class="iconfont icon-arrow-right icon"></text>
+        </view>
+        <view class="detail-address">
+            <text class="title">送至</text>
+            <text class="content">北京市 海淀区</text>
+            <text class="iconfont icon-arrow-right icon"></text>
+        </view>
+        <view class="detail-service">
+            <text class="title">服务</text>
+            <view class="content">
+                <text class="iconfont icon-allright">包邮</text>
+                <text class="iconfont icon-allright">小米自营</text>
+                <text class="iconfont icon-allright">天无理由</text>
+            </view>
+            <text class="iconfont icon-arrow-right icon"></text>
+        </view>
+        <view class="detail-null"></view>
+        <view class="detail-ranking">55-60英寸好评榜排名第二名</view>
+        <view class="detail-null"></view>
+        <view class="detail-evalute" id="part">
+            <view class="user-evalute">
+                <view class="top">
+                    <text class="left">用户评价(3275)</text>
+                    <text class="right">96%满意<text class="iconfont icon-arrow-right"></text></text>
+                </view>
+                <view class="bottom">
+                    <text>有图(280)</text>
+                    <text>追评(6)</text>
+                    <text>好评(581)</text>
+                    <text>性价比高(204)</text>
+                </view>
+            </view>
+            <view class="user-detail hide-scroll">
+                <view class="item">
+                    <navigator>
+                        <image src="http://192.168.110.100:1314/images/detail/user1.jpg" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <image src="http://192.168.110.100:1314/images/detail/user2.jpg" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <image src="http://192.168.110.100:1314/images/detail/user3.jpg" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <image src="http://192.168.110.100:1314/images/detail/user4.jpg" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <image src="http://192.168.110.100:1314/images/detail/user5.jpg" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <text class="more">查看更多评价</text>
+            </view>
+        </view>
+        <view class="detail-null"></view>
+        <view class="detail-ask">
+            <text class="ask-us">暂无问答</text>
+            <view class="wrapper">
+                <image src="http://192.168.110.100:1314/images/detail/ask.png" mode="widthFix"></image>
+                <text class="text">好不好，问大家</text>
+                <text class="go-to-ask">去提问</text>
+            </view>
+        </view>
+        <view class="detail-null"></view>
+        <view class="detail-title">
+            <text class="active">概述</text>
+            <text>参数</text>
+            <text>安装服务</text>
+            <text>常见问题</text>
+        </view>
+        <view class="detail-images">
+            <view class="images" wx:for="{{ otherImgs }}" wx:key="item">
+                <image mode="widthFix" src="{{appWxs.pathResolve(item)}}"></image>
+            </view>
+        </view>
+        <view class="detail-null"></view>
+        <view class="detail-other">
+            <text class="other">您可能还喜欢</text>
+        </view>
+        <view class="detail-null"></view>
+        <view class="detail-recommend">
+            <view class="item">
+                <navigator>
+                    <image src="http://192.168.110.100:1314/images/product/01.png" mode="widthFix"></image>
+                    <text class="name">小米电视4A 55英寸</text>
+                    <text class="brief">极致超窄边框，4K超高清</text>
+                    <text class="price">￥1599</text>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator>
+                    <image src="http://192.168.110.100:1314/images/product/02.png" mode="widthFix"></image>
+                    <text class="name">小米电视4C 32英寸</text>
+                    <text class="brief">卧室推荐，人工智能系统</text>
+                    <text class="price">￥599</text>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator>
+                    <image src="http://192.168.110.100:1314/images/product/03.png" mode="widthFix"></image>
+                    <text class="name">小米电视4A 60英寸</text>
+                    <text class="brief">4K HDR 超高清/ 人工智能语音</text>
+                    <text class="price">￥1899</text>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator>
+                    <image src="http://192.168.110.100:1314/images/product/04.png" mode="widthFix"></image>
+                    <text class="name">小米电视4A 55英寸</text>
+                    <text class="brief">极致超窄边框，4K超高清</text>
+                    <text class="price">￥1599</text>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator>
+                    <image src="http://192.168.110.100:1314/images/product/05.png" mode="widthFix"></image>
+                    <text class="name">小米电视4C 43英寸</text>
+                    <text class="brief">人工智能，钢琴烤漆，杜比音效</text>
+                    <text class="price">￥999</text>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator>
+                    <image src="http://192.168.110.100:1314/images/product/06.png" mode="widthFix"></image>
+                    <text class="name">小米电视4A 70英寸</text>
+                    <text class="brief ellipsis">内置小爱同学，海量片源</text>
+                    <text class="price">￥2999</text>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="page-footer">
+        <view class="small-rice">
+            <image src="http://192.168.110.100:1314/images/detail/small-rice.png" mode="widthFix"></image>
+            <text>小米</text>
+        </view>
+        <view class="cart" bindtap="gotoCart">
+            <image src="http://192.168.110.100:1314/images/detail/cart.png" mode="widthFix"></image>
+            <text class="cart">购物车</text>
+            <text class="count-cart" hidden="{{ !token }}">{{ countAll }}</text>
+        </view>
+        <view class="buttons">
+            <view class="wrapper">
+                <text class="add-to-cart" bindtap="popCart">加入购物车</text>
+                <text class="go-to-buy">立即购买</text>
+            </view>
+        </view>
+    </view>
+    <view class="pop-content {{ isHide ? '' : 'active' }}" catchtouchmove="preventTouchMove">
+        <text class="iconfont icon-searchclose icon" bindtap="popClose"></text>
+        <view class="product">
+            <view class="image-wrapper">
+                <image src="{{ appWxs.pathResolve(product.avatar) }}" mode="widthFix"></image>
+            </view>
+            <view class="detail-wrapper">
+                <text class="price">￥{{ product.price }}</text>
+                <text class="num">已选：{{ count }}</text>
+            </view>
+        </view>
+        <view class="count-wrapper">
+            <view class="count">
+                <text class="title">数量：</text>
+                <mi-count count="{{ count }}"
+                    bindincrease="increaseHandler"
+                    binddecrease="decreaseHandler"></mi-count>
+            </view>
+        </view>
+        <view class="button-wrapper">
+            <text class="btn-ok" bindtap="save">确定</text>
+        </view>
+    </view>
+    <view class="curtain {{ isHide ? '' : 'active' }}" catchtouchmove="preventTouchMove" bindtap="popClose"></view>
+    <view class="rocket iconfont icon-top" hidden="{{ rocketHide }}" bindtap="gotoTop"></view>
+</view>
+
+<text class="empty" wx:else>暂无相关该商品的详细信息</text>

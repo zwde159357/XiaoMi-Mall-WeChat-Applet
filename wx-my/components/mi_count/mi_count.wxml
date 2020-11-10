@@ -1,0 +1,5 @@
+<view class="count-wrapper">
+    <text bindtap="decreaseHandler" class="mi-btn">-</text>
+    <text class="count">{{ count }}</text>
+    <text bindtap="increaseHandler" class="mi-btn">+</text>
+</view>

@@ -1,0 +1,119 @@
+<wxs src="../../app.wxs" module="appWxs"></wxs>
+<view class="page-container hide-scroll">
+    <view class="page-header">
+        <swiper class="home-swiper" indicator-dots="true" 
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+        circular="{{ circular }}">
+            <block wx:for="{{bannerData}}" wx:key="index">
+                <swiper-item>
+                    <image class="slide-image" src="{{ appWxs.pathResolve(item) }}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="page-content">
+        <view class="top-wrapper">
+            <view class="content-top">
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index001.jpg" />
+                <text>每日上新</text>
+            </view>
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index002.jpg" />
+                <text>小米众筹</text>
+            </view>
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index003.jpg" />
+                <text>有品秒杀</text>
+            </view>
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index004.jpg" />
+                <text>热销排行</text>
+            </view>
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index005.jpg" />
+                <text>小米自营</text>
+            </view>
+        </view>
+        <view class="content-bottom">
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index006.jpg" />
+                <text>下单立返</text>
+            </view>
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index007.jpg" />
+                <text>9.9包邮</text>
+            </view>
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index008.jpg" />
+                <text>有品直播</text>
+            </view>
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index009.jpg" />
+                <text>小米庄园</text>
+            </view>
+            <view class="item">
+                <image src="http://192.168.110.100:1314/images/home/index010.jpg" />
+                <text>智能生活</text>
+            </view>
+        </view>
+        </view>
+        <view class="discount-wrapper">
+            <image src="http://192.168.110.100:1314/images/home/discount001.jpg"></image>
+            <image src="http://192.168.110.100:1314/images/home/discount002.jpg"></image>
+            <image src="http://192.168.110.100:1314/images/home/discount003.jpg"></image>
+            <image src="http://192.168.110.100:1314/images/home/discount004.jpg"></image>
+        </view>
+        <view class="day-update">
+            <view class="title-wrapper">
+                <text class="title">每日上新</text>
+                <text class="other">更多 ></text>
+            </view>
+            <view class="content-wrapper">
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll001.jpg"></image>
+                    <text>小米10 青春版5G</text>
+                </view>
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll002.jpg"></image>
+                    <text>宁美电脑一体机</text>
+                </view>
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll003.jpg"></image>
+                    <text>米家保温杯500ML</text>
+                </view>
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll004.jpg"></image>
+                    <text>即热饮水机C1</text>
+                </view>
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll005.jpg"></image>
+                    <text>米家洗烘一体机</text>
+                </view>
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll006.jpg"></image>
+                    <text>蝴蝶小姐系列</text>
+                </view>
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll007.jpg"></image>
+                    <text>Halou GT1 Pro</text>
+                </view>
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll008.jpg"></image>
+                    <text>九阳可视化蒸汽饭</text>
+                </view>
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll009.jpg"></image>
+                    <text>全价无谷猫粮</text>
+                </view>
+                <view class="content">
+                    <image src="http://192.168.110.100:1314/images/home/scroll010.jpg"></image>
+                    <text>小米对讲机Lite</text>
+                </view>
+            </view>
+        </view>
+        <view class="crowfunding">
+            <image src="http://192.168.110.100:1314/images/home/other.jpg"></image>
+        </view>
+    </view>
+</view>

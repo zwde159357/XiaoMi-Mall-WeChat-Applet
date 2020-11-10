@@ -1,0 +1,24 @@
+<wxs src="./category.wxs" module="wxs"></wxs>
+<wxs src="../../app.wxs" module="appWxs"></wxs>
+<view class="page-container">
+  <view class="page-header"></view>
+  <view class="page-content">
+    <view class="left hide-scroll">
+      <block wx:for="{{ listMain }}" wx:key="id">
+        <view class="item" bindtap="actived" data-item="{{ item }}">
+          <text class="text {{activeId === item.id ? 'active' : ''}}">{{ item.name }}</text>
+        </view>
+      </block>
+    </view>
+    <view class="right hide-scroll">
+      <image src="{{ wxs(listMain, activeId) }}" />
+      <view class="sub-content" wx:if="{{ listSub.length !== 0 }}">
+          <navigator wx:for="{{ listSub }}" wx:key="id" url="/pages/list/list?id={{ item.id }}">
+              <image src="{{ appWxs.pathResolve(item.avatar) }}"/>
+              <text class="text">{{ item.name }}</text>
+          </navigator>
+      </view>
+      <view class="empty" wx:else>暂无相关商品</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+<view class="pop-content">
+    <view class="pop-top">
+        <text class="title">新增地址</text>
+        <image src="http://192.168.110.100:1314/images/address/back.png" bindtap="endOperate"></image>
+    </view>
+    <view class="content">
+        <view class="name-wrapper">
+            <text class="name">收货人姓名</text>
+            <input type="text" placeholder="请输入收货人姓名" value="{{ model.receiveName }}" bindinput="setReceiveName" />
+        </view>
+        <view class="phone-wrapper">
+            <text class="phone">收货人电话</text>
+            <input type="text" placeholder="请输入收货人电话" value="{{ model.receivePhone }}" bindinput="setReceivePhone" />
+        </view>
+        <view class="address-wrapper">
+            <text class="address">所在地区</text>
+            <input type="text" placeholder="请输入地址" value="{{ model.receiveRegion }}" bindinput="setReceiveRegion" />
+        </view>
+        <view class="detail-address-wrapper">
+            <text class="detail-address">街道地址</text>
+            <input type="text" placeholder="请输入街道地址" value="{{ model.receiveDetail }}" bindinput="setReceiveDetail" />
+        </view>
+        <view class="set-default">
+            <image src="http://192.168.110.100:1314/images/address/icon_check_red.png" mode="widthFix" bindtap="setDefault" data-id="1" hidden="{{ model.isDefault === 0 }}"></image>
+            <image src="http://192.168.110.100:1314/images/address/icon_uncheck.png" mode="widthFix" bindtap="setDefault" data-id="0" hidden="{{ model.isDefault === 1 }}"></image>
+            <text class="text">设置默认地址</text>
+        </view>
+        <view class="btn-delete">
+            <text hidden="{{ mode }}" bindtap="remove">删除收货地址</text>
+        </view>
+        <view class="btn-wrapper">
+            <text class="btn-save" bindtap="save">保存</text>
+        </view>
+    </view>
+</view>

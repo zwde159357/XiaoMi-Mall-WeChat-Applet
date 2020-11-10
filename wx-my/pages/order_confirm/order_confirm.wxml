@@ -1,0 +1,84 @@
+<wxs src="../../app.wxs" module="appWxs"></wxs>
+<view class="page-container">
+    <view class="page-content">
+        <view class="content-top">
+            <view class="top">
+                <text class="iconfont icon-arrow-left back icon"></text>
+                <text class="name">确定订单</text>
+            </view>
+            <view class="bottom {{ address.length !== 0 ? 'active' : '' }}">
+                <view class="wrapper">
+                    <text class="name">{{ address.receiveName }}</text>
+                    <text class="phone">{{ address.receivePhone }}</text>
+                </view>
+                <text class="address">{{ address.receiveRegion }} {{ address.receiveDetail }}</text>
+                <text class="iconfont icon-arrow-right go-address icon" bindtap="gotoAddress"></text>
+            </view>
+            <view class="no-bottom {{ address.length === 0 ? 'active' : '' }}">
+                <text class="text">没有默认地址，请添加</text>
+                <text class="iconfont icon-arrow-right go-address icon" bindtap="gotoAddress"></text>
+            </view>
+        </view>
+        <view class="content-wrapper">
+            <view class="top">
+                <image src="http://192.168.110.100:1314/images/order_confirm/milogo.png" mode="widthFix"></image>
+                <text class="title">小米自营</text>
+            </view>
+            <view class="selected-product">
+                <view class="item" wx:for="{{ list }}" wx:key="id">
+                    <view class="product-wrapper">
+                        <image src="{{ appWxs.pathResolve(item.avatar) }}" mode="widthFix"></image>
+                        <view class="detail-wrapper">
+                            <text class="name">{{ item.name }}</text>
+                            <view class="count-wrapper">
+                                <text class="price">￥{{ item.price }}</text>
+                                <text class="count">X{{ item.count }}</text>
+                            </view>
+                            <text class="text">七天无理由退换</text>
+                        </view>
+                    </view>
+                    <view class="give">
+                        <text class="title">赠品</text>
+                        <text class="text">保修服务2年</text>
+                        <text class="count">X1</text>
+                    </view>
+                </view>
+            </view>
+            <view class="type">
+                <text class="title">发票类型</text>
+                <text class="text">个人电子发票<text class="iconfont icon-arrow-right"></text></text>
+            </view>
+            <view class="message">
+                <text class="title">买家留言</text>
+                <input type="text" placeholder='填写内容需与商家协商并确认,45字以内' />
+            </view>
+        </view>
+        <view class="discount-wrapper">
+            <view class="discount">
+                <text class="title">优惠券</text>
+                <text class="text">暂无可用<text class="iconfont icon-arrow-right"></text></text>
+            </view>
+            <view class="translation">
+                <text class="title">配送方式</text>
+                <text class="text">快速配送</text>
+            </view>
+        </view>
+        <view class="account-wrapper">
+            <view class="account">
+                <text class="title">商品金额</text>
+                <text class="text">￥{{ account }}</text>
+            </view>
+            <view class="translation-fee">
+                <text class="title">运费</text>
+                <text class="text">+￥0.00</text>
+            </view>
+        </view>
+    </view>
+    <view class="page-footer">
+        <view class="account-wrapper">
+            <text class="title">合计：</text>
+            <text class="account">￥{{ account }}</text>
+        </view>
+        <text class="btn-generate-order" bindtap="generateOrder">提交订单</text>
+    </view>
+</view>

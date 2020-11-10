@@ -1,0 +1,790 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container .page-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 90rpx;
+    z-index: 100;
+    background-color: #ccc;
+    opacity: 0;
+    transition: all 0.6s ease-out;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 100rpx;
+    box-sizing: border-box;
+}
+
+.page-header.active {
+    opacity: 1;
+}
+
+.page-header text {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 90rpx;
+    font-size: 32rpx;
+}
+
+.page-header text.active {
+    color: red;
+    border-bottom: 4rpx solid black;
+}
+
+
+.page-container .other-detail-title {
+    position: fixed;
+    top: 90rpx;
+    left: 0;
+    width: 100%;
+    height: 82rpx;
+    background-color: white;
+    z-index: 100;
+    align-items: center;
+    justify-content: space-around;
+    display: none;
+}
+
+.page-container .other-detail-title.active {
+    display: flex;
+}
+
+.other-detail-title text {
+    flex-shrink: 0;
+    font-size: 32rpx;
+    color: rgba(51,51,51);
+}
+
+.other-detail-title text.active {
+    color: red;
+}
+
+.page-container .page-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 110rpx;
+}
+
+.page-content .banner-wrapper {
+    flex-shrink: 0;
+    height: 750rpx;
+}
+
+.banner-wrapper swiper {
+    height: 100%
+}
+.banner-wrapper swiper-item {
+    width: 100%;
+}
+
+.banner-wrapper swiper-item image {
+    width: 100%;
+}
+
+.page-content .detail-price {
+    height: 76rpx;
+    flex-shrink: 0;
+    padding: 20rpx 30rpx 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-price text.price {
+    flex-shrink: 0;
+    width: 148rpx;
+    line-height: 76rpx;
+    font-size: 48rpx;
+    color: red;
+}
+
+.detail-price image {
+    flex-shrink: 0;
+    width: 76rpx;
+}
+
+.page-content .detail-name {
+    height: 48rpx;
+    padding: 0 30rpx;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+.detail-name text.icon-small-rice {
+    flex-shrink: 0;
+    width: 100rpx;
+    height: 36rpx;
+    border-radius: 24rpx;
+    background-color: rgba(255,133,33);
+    font-size: 22rpx;
+    color: white;
+    line-height: 36rpx;
+    text-align: center;
+}
+
+.detail-name text.name {
+    margin-left: 20rpx;
+    line-height: 36rpx;
+    font-size: 32rpx;
+    font-weight: 600;
+    color: black;
+}
+
+.page-content .detail-brief {
+    height: 60rpx;
+    padding: 20rpx 30rpx 0;
+    flex-shrink: 0;
+    display: flex;
+}
+
+.detail-brief text.brief {
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.page-content .detail-introduce {
+    display: flex;
+    height: 60rpx;
+    margin-top: 10rpx;
+    padding: 10rpx 30rpx 0;
+    flex-shrink: 0;
+}
+
+.detail-introduce .introduce {
+    font-size: 26rpx;
+    color: red;
+}
+
+.page-content .detail-buy {
+    display: flex;
+    height: 60rpx;
+    margin-top: 10rpx;
+    padding: 10rpx 30rpx 0;
+    flex-shrink: 0;
+}
+
+.detail-buy text.now-buy {
+    height: 40rpx;
+    padding: 4rpx 20rpx;
+    border: 1rpx solid #DDDDDD;
+    border-radius: 24rpx;
+    line-height: 40rpx;
+    font-size: 22rpx;
+    color: red;
+}
+
+.page-content .detail-null {
+    height: 20rpx;
+    flex-shrink: 0;
+    background-color: #DDDDDD;
+} 
+
+.page-content .detail-red {
+    flex-shrink: 0;
+    height: 84rpx;
+}
+
+.detail-red image {
+    width: 100%;
+}
+
+.page-content .detail-num {
+    flex-shrink: 0;
+    height: 96rpx;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid rgba(153,153,153);
+}
+
+.detail-num text {
+    font-size: 22rpx;
+}
+
+.detail-num text.title {
+    width: 56rpx;
+    flex-shrink: 0;
+    margin-right: 22rpx;
+    color: rgba(153,153,153);
+}
+
+.detail-num text.content {
+    flex-grow: 1;
+}
+
+.detail-num text.icon {
+    flex-shrink: 0;
+    font-size: 24rpx;
+    color: rgba(153,153,153);
+}
+
+.page-content .detail-address {
+    flex-shrink: 0;
+    height: 96rpx;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid rgba(153,153,153);
+}
+
+.detail-address text {
+    font-size: 22rpx;
+}
+
+.detail-address text.title {
+    width: 56rpx;
+    flex-shrink: 0;
+    margin-right: 22rpx;
+    color: rgba(153,153,153);
+}
+
+.detail-address text.content {
+    flex-grow: 1;
+}
+
+.detail-address text.icon {
+    flex-shrink: 0;
+    font-size: 24rpx;
+    color: rgba(153,153,153);
+}
+
+.page-content .detail-service {
+    flex-shrink: 0;
+    height: 96rpx;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+.detail-service text {
+    font-size: 22rpx;
+}
+
+.detail-service text.title {
+    width: 56rpx;
+    flex-shrink: 0;
+    margin-right: 22rpx;
+    color: rgba(153,153,153);
+}
+
+.detail-service .content {
+    flex-grow: 1;
+}
+
+.detail-service .content text {
+    color: orange;
+    font-size: 22rpx;
+    margin: 0 10rpx;
+}
+
+.detail-service text.icon {
+    flex-shrink: 0;
+    font-size: 24rpx;
+    color: rgba(153,153,153);
+}
+
+.page-content .detail-ranking {
+    flex-shrink: 0;
+    padding-left: 100rpx;
+    display: flex;
+    align-items: center;
+    height: 92rpx;
+    background-image: url(http://192.168.110.100:1314/images/ranking.png);
+    background-size: 100% 100%;
+    font-size: 24rpx;
+    font-weight: bold;
+    color: rgba(53,53,53);
+}
+
+.page-content .detail-evalute {
+    flex-shrink: 0;
+    height: 618rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-evalute .user-evalute {
+    flex-shrink: 0;
+    height: 120rpx;
+    padding: 20rpx 20rpx 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-evalute .top {
+    flex-shrink: 0;
+    height: 40rpx;
+    padding: 6rpx 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top text.left {
+    color: rgba(51,51,51);
+    font-weight: bold;
+    font-size: 26rpx;
+}
+
+.top text.right {
+    font-size: 22rpx;
+    color: rgba(153,153,153);
+}
+
+.top text.right text {
+    font-size: 24rpx;
+    color: rgba(153,153,153);
+}
+
+.user-evalute .bottom {
+    flex-shrink: 0;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+}
+
+.bottom text {
+    flex-shrink: 0;
+    margin-right: 16rpx;
+    padding: 4rpx 8rpx;
+    line-height: 30rpx;
+    border-radius: 24rpx;
+    font-size: 22rpx;
+    color: rgba(51,51,51);
+    height: 30rpx;
+    background-color: rgba(244,231,206);
+}
+
+.detail-evalute .user-detail {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: auto;
+}
+
+.user-detail .item {
+    flex-shrink: 0;
+    width: 616rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+
+.user-detail .item navigator {
+    width: 100%;
+}
+
+.user-detail .item navigator image {
+    width: 100%;
+}
+
+.user-detail .more {
+    flex-shrink: 0;
+    width: 80rpx;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 90rpx 20rpx;
+    font-size: 22rpx;
+    margin-right: 20rpx;
+    height: 416rpx;
+    background-color: rgba(248,248,248);
+}
+
+.page-content .detail-ask {
+    flex-shrink: 0;
+    height: 228rpx;
+    padding: 40rpx 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-ask text.ask-us {
+    flex-shrink: 0;
+    height: 36rpx;
+    color: rgba(51,51,51);
+    font-weight: bold;
+    font-size: 24rpx;
+}
+
+.detail-ask .wrapper {
+    flex-shrink: 0;
+    display: flex;
+    height: 114rpx;
+    padding: 44rpx 0 20rpx;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.detail-ask .wrapper image {
+    width: 24rpx;
+}
+
+.detail-ask .wrapper text.text {
+    margin-left: 20rpx;
+    font-size: 22rpx;
+    color: rgba(51,51,51);
+}
+
+.detail-ask .wrapper text.go-to-ask {
+    font-size: 22rpx;
+    border: 1rpx solid orange;
+    border-radius: 24rpx;
+    padding: 4rpx 30rpx;
+    margin-left: 360rpx;
+}
+
+.page-content .detail-title {
+    flex-shrink: 0;
+    height: 82rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.detail-title text {
+    flex-shrink: 0;
+    font-size: 32rpx;
+    color: rgba(51,51,51);
+}
+
+.detail-title text.active {
+    color: red;
+}
+
+.page-content .detail-images {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-images .images {
+    flex-grow: 1;
+    width: 100%;
+    font-size: 0;
+}
+
+.detail-images .images image {
+    width: 100%;
+}
+
+.page-content .detail-other {
+    flex-shrink: 0;
+    height: 92rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-other text.other {
+    flex-shrink: 0;
+    line-height: 92rpx;
+    font-size: 30rpx;
+    color: rgba(51,51,51);
+}
+
+.page-content .detail-recommend {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10rpx;
+    box-sizing: border-box;
+    background-color: rgba(244,244,244);
+}
+
+.detail-recommend .item {
+    display: flex;
+    padding: 10rpx;
+    width: 50%;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+
+.detail-recommend .item navigator {
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    padding: 10rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+.detail-recommend .item navigator image {
+    width: 100%;
+}
+
+.detail-recommend .item navigator text {
+    font-size: 22rpx;
+    margin-bottom: 10rpx;
+}
+
+.detail-recommend .item navigator text.name {
+    color: rgba(51,51,51);
+}
+
+.detail-recommend .item navigator text.brief {
+    color: #999999;
+}
+
+.detail-recommend .item navigator text.price {
+    font-size: 34rpx;
+    color: red;
+}
+
+.page-container .page-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 110rpx;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.page-footer .small-rice {
+    flex-shrink: 0;
+    width: 82rpx;
+    margin-left: 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-rice image {
+    flex-shrink: 0;
+    width: 58rpx;
+}
+
+.small-rice text {
+    flex-grow: 1;
+    flex-basis: 0;
+    font-size: 22rpx;
+    color: #666666;
+}
+
+.page-footer .cart {
+    flex-shrink: 0;
+    width: 94rpx;
+    margin: 0 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cart image {
+    flex-shrink: 0;
+    width: 58rpx;
+}
+
+.cart text.cart {
+    font-size: 11px;
+    line-height: 12px;
+    color: #666666;
+}
+
+.cart text.count-cart {
+    position: absolute;
+    top: 0;
+    right: 8rpx;
+    background-color: red;
+    color: white;
+    min-width: 32rpx;
+    height: 32rpx;
+    border-radius: 50%;
+    font-size: 22rpx;
+    text-align: center;
+    line-height: 32rpx;
+}
+
+
+.page-footer .buttons {
+    flex-grow: 1;
+    margin: 0 10rpx;
+    display: flex;
+}
+
+.buttons .wrapper {
+    flex-grow: 1;
+    display: flex;
+}
+
+.buttons .wrapper text {
+    width: 50%;
+    text-align: center;
+    line-height: 76rpx;
+    font-size: 28rpx;
+    color: white;
+}
+
+.buttons .wrapper text.add-to-cart {
+    background-color: rgb(238,203,118);
+    border-top-left-radius: 38rpx;
+    border-bottom-left-radius: 38rpx;
+}
+
+.buttons .wrapper text.go-to-buy {
+    background-color: rgb(237,70,42);
+    border-top-right-radius: 38rpx;
+    border-bottom-right-radius: 38rpx;
+}
+
+/* 商品信息不存在 */
+text.empty {
+    display: block;
+    text-align: center;
+    height: 60rpx;
+    line-height: 60rpx;
+    color: #cccccc;
+}
+
+/* 弹出的内容 */
+.pop-content {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    max-height: 0;
+    z-index: 110;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.6s ease-out;
+}
+
+.pop-content.active {
+    max-height: 1000rpx;
+}
+
+.pop-content .icon {
+    position: absolute;
+    right: 10rpx;
+    top: 10rpx;
+    font-size: 64rpx;
+}
+
+.pop-content .product {
+    flex-shrink: 0;
+    height: 236rpx;
+    padding: 28rpx;
+    box-sizing: border-box;
+    display: flex;
+    border-bottom: 1rpx solid #ddd;
+}
+
+.pop-content .product .image-wrapper {
+    flex-shrink: 0;
+    width: 180rpx;
+}
+
+.pop-content .product .image-wrapper image {
+    width: 100%;
+}
+
+.pop-content .product .detail-wrapper {
+    flex-grow: 1;
+    margin-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pop-content .product .detail-wrapper .price {
+    font-size: 40rpx;
+    color: rgb(182,9,9);
+}
+
+.pop-content .product .detail-wrapper .num {
+    margin-top: 16rpx;
+    color: rgb(102,102,102);
+    font-size: 26rpx;
+}
+
+.pop-content .count-wrapper {
+    flex-shrink: 0;
+    height: 662rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.pop-content .count-wrapper .count {
+    flex-shrink: 0;
+    height: 124rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20rpx;
+}
+
+.pop-content .count-wrapper .count .title {
+    flex-shrink: 0;
+    height: 30rpx;
+    font-size: 26rpx;
+    margin-right: 20rpx;
+    color: rgb(153,153,153);
+}
+
+.pop-content .button-wrapper {
+    flex-grow: 1;
+    padding: 0 30rpx;
+} 
+
+.pop-content .button-wrapper .btn-ok {
+    display: inline-block;
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: white;
+    text-align: center;
+    background: linear-gradient(to right, rgb(240, 78, 46), rgb(213, 16, 16));
+    border-radius: 44rpx;
+    font-size: 28rpx;
+}
+
+/* 遮罩层 */
+.curtain {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(111,111,111, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 105;
+    display: none;
+}
+
+.curtain.active {
+    display: block;
+}
+
+/* 回到顶部 */
+.rocket {
+    position: fixed;
+    right: 20rpx;
+    bottom: 100rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    font-size: 50rpx;
+    text-align: center;
+    line-height: 100rpx;
+}

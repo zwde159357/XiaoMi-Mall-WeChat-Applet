@@ -1,0 +1,44 @@
+<view class="page-container">
+    <view class="page-header">
+        <text class="title">有品收银台</text>
+        <image src="http://192.168.110.100:1314/images/pay/back.png" bindtap="gotoOrder" class="back" mode="widthFix"></image>
+    </view>
+    <view class="page-content">
+        <view class="content-top">
+            <text class="account">￥{{ account }}.00</text>
+            <text class="timer">支付剩余时间{{ time }}</text>
+        </view>
+        <view class="content-pay">
+            <view class="pay-top">
+                <image src="http://192.168.110.100:1314/images/pay/pay_alipay.png" mode="widthFix" class="pay"></image>
+                <text class="title">支付宝</text>
+                <text class="recommend">推荐</text>
+                <image src="http://192.168.110.100:1314/images/pay/icon_uncheck.png" mode="widthFix" bindtap="changePayWay"
+                class="checkbox unchecked {{ isOne ? '' : 'active' }}"></image>
+                <image src="http://192.168.110.100:1314/images/pay/icon_check_red.png" mode="widthFix" bindtap="changePayWay"
+                class="checkbox checked {{ isOne ? 'active' : '' }}"></image>
+            </view>
+            <view class="pay-bottom">
+                <image src="http://192.168.110.100:1314/images/pay/pay_mipay.png" mode="widthFix" class="pay"></image>
+                <text class="title">小米钱包</text>
+                <image src="http://192.168.110.100:1314/images/pay/icon_uncheck.png" mode="widthFix" bindtap="changePayWay"
+                class="checkbox unchecked {{ !isOne ? '' : 'active' }}"></image>
+                <image src="http://192.168.110.100:1314/images/pay/icon_check_red.png" mode="widthFix" bindtap="changePayWay"
+                class="checkbox checked {{ !isOne ? 'active' : '' }}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="page-footer" bindtap="beginPay">
+        <text class="btn-pay">确认支付<text class="account">￥{{ account }}.00</text></text>
+    </view>
+</view>
+<view class="pay-wrapper {{ isPop ? 'active' : '' }}">
+    <image src="http://192.168.110.100:1314/images/pay/pay.png" mode="widthFix"></image>
+    <text class="account">￥{{ account }}.00</text>
+    <view class="btn-wrapper">
+        <text class="pay" bindtap="payForOrder">确认支付</text>
+        <text class="cancel" bindtap="closePay">取消</text>
+    </view>
+    <text class="iconfont icon-searchclose close" bindtap="closePay"></text>
+</view>
+<view class="curtain {{ isPop ? 'active' : '' }}"></view>

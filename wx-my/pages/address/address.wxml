@@ -1,0 +1,36 @@
+<view class="page-container">
+    <view class="page-content">
+        <view class="content-top">
+            <text class="title">收货地址</text>
+            <image src="http://192.168.110.100:1314/images/address/back.png" mode="widthFix" bindtap="goBack"></image>
+        </view>
+        <view class="content no" wx:if="{{ address.length === 0 }}">
+            <view class="no-result">
+                <image src="http://192.168.110.100:1314/images/address/no_result_address.png" mode="widthFix"></image>
+                <text>您还没有收货地址，请点击下方+新建</text>
+            </view>
+        </view>
+        <view class="content yes" wx:else>
+            <view class="address">
+                <view class="item" wx:for="{{ address }}" wx:key="id">
+                    <view class="main" bindtap="backOrderConfirm" data-id="{{ item.id }}">
+                        <view class="top">
+                            <text class="name">{{ item.receiveName }}</text>
+                            <text class="phone">{{ item.receivePhone }}</text>
+                        </view>
+                        <view class="bottom">
+                            <text class="default" hidden="{{ !item.isDefault }}">默认</text>
+                            <text class="detail-address">{{ item.receiveRegion }} {{ item.receiveDetail }}</text>
+                        </view>
+                    </view>
+                    <view class="edit">
+                        <image src="http://192.168.110.100:1314/images/address/icon_edit_gray.png" mode="widthFix" bindtap="beginEdit" data-item="{{ item }}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="content-footer">
+            <text bindtap="beginAdd">+ 添加地址</text>
+        </view>
+    </view>
+</view>

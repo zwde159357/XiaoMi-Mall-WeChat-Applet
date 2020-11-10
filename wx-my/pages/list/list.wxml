@@ -1,0 +1,43 @@
+<!--pages/list/list.wxml-->
+<wxs src="../../app.wxs" module="appWxs"></wxs>
+<wxs src="./list.wxs" module="wxs"></wxs>
+
+<view class="page-container hide-scroll">
+    <view class="page-header">
+        <view class="search-wrapper">
+            <input type="text" value='{{ name }}' 
+            placeholder='请输入搜索内容...' bindinput="nameChangeHandler" />
+            <text class="iconfont icon-{{ showWithCard ? 'card' : 'list' }}" bindtap="showCard"></text>
+        </view>
+        <view class="order-wrapper">
+            <text bindtap="toggleOrderDir" class="iconfont icon-sort-{{orderDir}}}"></text>
+            <text data-col="price" bindtap="toggleOrderCol" class="{{ orderCol === 'price' ? 'active' : '' }}">价格</text>
+            <text data-col="sale" bindtap="toggleOrderCol" class="{{ orderCol === 'sale' ? 'active' : '' }}">销量</text>
+            <text data-col="rate" bindtap="toggleOrderCol" class="{{ orderCol === 'rate' ? 'active' : '' }}">评论</text>
+        </view>
+    </view>
+    <view class="page-content">
+        <view class="content-wrapper {{ showWithCard ? 'card' : 'list' }}">
+            <navigator wx:for="{{ list }}" wx:key="id" url="/pages/detail/detail?id={{ item.id }}">
+                <view class="wrapper">
+                    <view class="image-wrapper">
+                    <image src="{{ appWxs.pathResolve(item.avatar)}}" mode="widthFix"></image>
+                    </view>
+                    <view class="content">
+                        <text class="name ellipsis">{{ item.name }}</text>
+                        <text class="brief ellipsis">{{ item.brief }}</text>
+                        <text class="price">￥{{ item.price }}</text>
+                        <view class="bottom">
+                            <text class="rate">{{ item.rate }}条评论</text>
+                            <text class="sale">销量：{{ item.sale }}</text>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <view class="tip-wrapper">
+            <text class="tip">{{ wxs.tipText(isLoading, list, hasMore) }}</text>
+        </view>
+    </view>
+    <view class="rocket iconfont icon-top" hidden="{{ rocketHide }}" bindtap="gotoTop"></view>
+</view>

@@ -1,0 +1,237 @@
+.ellipsis { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.hide-scroll::-webkit-scrollbar { display: none; }
+
+.page-container {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(244,244,244);
+}
+
+.page-header {
+    background-color: #eeeeee;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.page-header .search-wrapper {
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 30rpx;
+}
+
+.page-header .search-wrapper input {
+    flex-grow: 1;
+    height: 60rpx;
+    border: 1rpx solid black;
+    border-radius: 30rpx;
+    margin-right: 30rpx;
+    font-size: 32rpx;
+    padding-left: 1em;
+    background-color: white;
+}
+
+.page-header .search-wrapper text {
+    font-size: 40rpx;
+}
+
+.page-header .order-wrapper {
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+    display: flex;
+    justify-content: space-around;
+}
+
+.page-header .order-wrapper :first-child {
+    font-size: 40rpx;
+}
+
+.page-header .order-wrapper text.active {
+    color: red;
+}
+.page-content {
+    flex-grow: 1;
+    background-color: rgba(200,200,200);
+    display: flex;
+    flex-direction: column;
+    padding: 10rpx;
+    margin-top: 170rpx;
+}
+
+.page-content .content-wrapper.card {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.content-wrapper.card navigator{
+    flex-grow: 1;
+    width: 50%;
+    display: flex;
+    padding: 10rpx;
+    box-sizing: border-box;
+}
+
+.content-wrapper.card navigator .wrapper {
+    flex-shrink: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+}
+
+.content-wrapper.card .image-wrapper {
+    flex-shrink: 0;
+    height: 276rpx;
+    margin-top: 10rpx;
+    align-self: center;
+    background-color: #eeeeee;
+}
+
+.content-wrapper.card .image-wrapper image {
+    width: 276rpx;
+}
+
+.content-wrapper.card .content {
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.content-wrapper.card .content text {
+    margin-left: 10rpx;
+    flex-shrink: 0;
+    width: 100%;
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+}
+
+.content-wrapper.card .content text.name {
+    color: black;
+}
+
+.content-wrapper.card .content text.brief {
+    color: #666666;
+}
+
+.content-wrapper.card .content text.price {
+    color: #FF0000;
+}
+
+.content-wrapper.card .content .bottom {
+    margin-left: 10rpx;
+    margin-bottom: 10rpx;
+    font-size: 22rpx;
+    color: #666666;
+}
+
+.content-wrapper.card .content .bottom text {
+    margin-right: 10rpx;
+    font-size: 24rpx;
+}
+
+.page-content .content-wrapper.list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-wrapper.list navigator{
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    padding: 10rpx;
+    box-sizing: border-box;
+}
+
+.content-wrapper.list navigator .wrapper {
+    flex-shrink: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+}
+
+.content-wrapper.list .image-wrapper {
+    flex-shrink: 0;
+    margin-top: 10rpx;
+    align-self: center;
+    background-color: #eeeeee;
+}
+
+.content-wrapper.list .image-wrapper image {
+    width: 252rpx;
+}
+
+.content-wrapper.list .content {
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.content-wrapper.list .content text {
+    margin-left: 10rpx;
+    flex-shrink: 0;
+    width: 100%;
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+}
+
+.content-wrapper.list .content text.name {
+    color: black;
+}
+
+.content-wrapper.list .content text.brief {
+    color: #666666;
+}
+
+.content-wrapper.list .content text.price {
+    color: #FF0000;
+}
+
+.content-wrapper.list .content .bottom {
+    margin-left: 10rpx;
+    margin-bottom: 10rpx;
+    font-size: 22rpx;
+    color: #666666;
+}
+
+.content-wrapper.list .content .bottom text {
+    margin-right: 10rpx;
+    font-size: 24rpx;
+}
+
+
+text.tip {
+    display: block;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+
+.rocket {
+    position: fixed;
+    right: 20rpx;
+    bottom: 100rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    font-size: 50rpx;
+    text-align: center;
+    line-height: 100rpx;
+}

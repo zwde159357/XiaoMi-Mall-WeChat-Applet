@@ -1,0 +1,10 @@
+function avatar (listMain, activeId) {
+    if(activeId === 0) return '';
+    else
+        for(var i = 0; i < listMain.length; i++ ) {
+            if(listMain[i].id === activeId)
+                return 'http://localhost:1314' + listMain[i].avatar;
+        }        
+}
+
+module.exports = avatar;

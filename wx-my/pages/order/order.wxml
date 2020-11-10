@@ -1,0 +1,242 @@
+<wxs src="../../app.wxs" module="appWxs"></wxs>
+<view class="page-container">
+    <view class="page-header">
+        <view class="top">
+            <text class="title">我的订单</text>
+            <image src="http://192.168.110.100:1314/images/order/back.png" mode="widthFix" class="back"></image>
+            <image src="http://192.168.110.100:1314/images/order/icon_search_black.png" mode="widthFix" class="search"></image>
+        </view>
+        <view class="bottom">
+            <view class="title-wrapper">
+                <view class="item" data-id="0" bindtap="getList">
+                    <text class="title {{ activeId === 0 ? 'active' : '' }}">全部</text>
+                </view>
+                <view class="item" data-id="1" bindtap="getList">
+                    <text class="title {{ activeId === 1 ? 'active' : '' }}">待付款</text>
+                    <text class="num" hidden="{{ activeId !== 1 }}">{{ listAll.length }}</text>
+                </view>
+                <view class="item" data-id="2" bindtap="getList">
+                    <text class="title {{ activeId === 2 ? 'active' : '' }}">待收货</text>
+                    <text class="num" hidden="{{ activeId !== 2 }}">{{ listAll.length }}</text>
+                </view>
+                <view class="item" data-id="3" bindtap="getList">
+                    <text class="title {{ activeId === 3 ? 'active' : '' }}">退款订单</text>
+                </view>
+                <view class="item" data-id="4" bindtap="getList">
+                    <text class="title {{ activeId === 4 ? 'active' : '' }}">已收货</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="page-content">
+        <view class="content-wrapper all {{ activeId === 0 ? 'active' : '' }}">
+            <view class="head">
+                <image src="http://192.168.110.100:1314/images/order/group_title.png" mode="heightFix" class="left"></image>
+                <image src="http://192.168.110.100:1314/images/order/icon_arrow_right_darkgray.png" mode="heightFix" class="right"></image>
+            </view>
+            <view class="order-list" hidden="{{ activeId !== 0 }}">
+                <view class="item" wx:for="{{ listAll }}" wx:key="orderId" wx:for-item="item1">
+                    <view class="order-title">
+                        <view class="left">
+                            <image src="http://192.168.110.100:1314/images/order/milogo.png" mode="widthFix"></image>
+                            <text class="title">小米自营</text>
+                        </view>
+                        <text class="right">{{ item1.status }}</text>
+                    </view>
+                    <view class="product-wrapper">
+                        <view class="detail-product" wx:for="{{ item1.details }}" wx:key="id" wx:for-item="item2">
+                            <image src="{{ appWxs.pathResolve(item2.avatar) }}" mode="widthFix"></image>
+                            <view class="right">
+                                <view class="name-price">
+                                    <text class="name">{{ item2.name }}</text>
+                                    <text class="price">￥{{ item2.price }}</text>
+                                </view>
+                                <text class="count">X{{ item2.count }}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="account-wrapper">
+                        <view class="text">共有<text class="num"> {{ item1.total }} </text>商品，总金额<text class="account">￥{{ item1.account }}</text></view>
+                    </view>
+                    <view class="btn-wrapper zero {{ item1.status === '已取消' ? 'active' : '' }}">
+                        <text class="btn-delete" bindtap="beginRemove" data-id="{{ item1.orderId }}">删除订单</text>
+                        <text class="btn-rebuy" bindtap="beginBuyAgain" data-id="{{ item1.orderId }}">再次购买</text>
+                    </view>
+                    <view class="btn-wrapper one {{ item1.status === '待付款' ? 'active' : '' }}">
+                        <text class="time">支付剩余时间:{{ item1.time }}</text>
+                        <text class="btn-pay" bindtap="beginPay" data-id="{{ item1.orderId }}">付款</text>
+                    </view>
+                    <view class="btn-wrapper two {{ item1.status === '待收货' ? 'active' : '' }}">
+                        <text class="btn-delete" bindtap="beginRemove" data-id="{{ item1.orderId }}">删除订单</text>
+                        <text class="btn-refund" bindtap="beginRefund">退款</text>
+                    </view>
+                </view>
+            </view>
+            <view class="wrapper {{ listAll.length === 0 ? 'active' : '' }}">
+                <image src="http://192.168.110.100:1314/images/order/no_result_order.png" mode="widthFix"></image>
+                <text class="text">目前没有订单</text>
+            </view>
+        </view>
+        <view class="content-wrapper no-pay {{ activeId === 1 ? 'active' : '' }}">
+            <view class="order-list">
+                <view class="item" wx:for="{{ listAll }}" wx:key="orderId" wx:for-item="item1">
+                    <view class="order-title">
+                        <view class="left">
+                            <image src="http://192.168.110.100:1314/images/order/milogo.png" mode="widthFix"></image>
+                            <text class="title">小米自营</text>
+                        </view>
+                        <text class="right">{{ item1.status }}</text>
+                    </view>
+                    <view class="product-wrapper">
+                        <view class="detail-product" wx:for="{{ item1.details }}" wx:key="id" wx:for-item="item2">
+                            <image src="{{ appWxs.pathResolve(item2.avatar) }}" mode="widthFix"></image>
+                            <view class="right">
+                                <view class="name-price">
+                                    <text class="name">{{ item2.name }}</text>
+                                    <text class="price">￥{{ item2.price }}</text>
+                                </view>
+                                <text class="count">X{{ item2.count }}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="account-wrapper">
+                        <view class="text">共有<text class="num"> {{ item1.total }} </text>商品，总金额<text class="account">￥{{ item1.account }}</text></view>
+                    </view>
+                    <view class="btn-wrapper one active">
+                        <text class="time">支付剩余时间:{{ item1.time }}</text>
+                        <text class="btn-pay" data-id="{{ item1.orderId }}" bindtap="beginPay">付款</text>
+                    </view>
+                </view>
+            </view>
+            <view class="wrapper {{ listAll.length === 0 ? 'active' : '' }}">
+                <image src="http://192.168.110.100:1314/images/order/no_result_order.png" mode="widthFix"></image>
+                <text class="text">目前没有待付款订单</text>
+            </view>
+            <text class="num"></text>
+        </view>
+        <view class="content-wrapper no-receive {{ activeId === 2 ? 'active' : '' }}">
+            <view class="order-list">
+                <view class="item" wx:for="{{ listAll }}" wx:key="orderId" wx:for-item="item1">
+                    <view class="order-title">
+                        <view class="left">
+                            <image src="http://192.168.110.100:1314/images/order/milogo.png" mode="widthFix"></image>
+                            <text class="title">小米自营</text>
+                        </view>
+                        <text class="right">{{ item1.status }}</text>
+                    </view>
+                    <view class="product-wrapper">
+                        <view class="detail-product" wx:for="{{ item1.details }}" wx:key="id" wx:for-item="item2">
+                            <image src="{{ appWxs.pathResolve(item2.avatar) }}" mode="widthFix"></image>
+                            <view class="right">
+                                <view class="name-price">
+                                    <text class="name">{{ item2.name }}</text>
+                                    <text class="price">￥{{ item2.price }}</text>
+                                </view>
+                                <text class="count">X{{ item2.count }}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="account-wrapper">
+                        <view class="text">共有<text class="num"> {{ item1.total }} </text>商品，总金额<text class="account">￥{{ item1.account }}</text></view>
+                    </view>
+                    <view class="btn-wrapper two active">
+                        <text class="btn-delete" bindtap="beginRemove" data-id="{{ item1.orderId }}">删除订单</text>
+                        <text class="btn-refund" bindtap="beginRefund">退款</text>
+                    </view>
+                </view>
+            </view>
+            <view class="wrapper {{ listAll.length === 0 ? 'active' : '' }}">
+                <image src="http://192.168.110.100:1314/images/order/no_result_order.png" mode="widthFix"></image>
+                <text class="text">目前没有待收货订单</text>
+            </view>
+            <text class="num"></text>
+        </view> 
+        <view class="content-wrapper refund {{ activeId === 3 ? 'active' : '' }}">
+            <view></view>
+            <view class="wrapper active">
+                <image src="http://192.168.110.100:1314/images/order/no_result_order.png" mode="widthFix"></image>
+                <text class="text">目前没有退款订单</text>
+            </view>
+       </view>
+       <view class="content-wrapper receive {{ activeId === 4 ? 'active' : '' }}">
+            <view></view>
+            <view class="wrapper active">
+                <image src="http://192.168.110.100:1314/images/order/no_result_order.png" mode="widthFix"></image>
+                <text class="text">目前没有已收货订单</text>
+            </view>
+        </view>
+        <view class="recommend">
+            <image src="http://192.168.110.100:1314/images/order/recheader_left.png" mode="widthFix" class="left"></image>
+            <text>为你推荐</text>
+            <image src="http://192.168.110.100:1314/images/order/recheader_right.png" mode="widthFix" class="right"></image>
+        </view>
+        <view class="scroll">
+            <view class="product-list card">
+                <view class="item">
+                    <navigator>
+                        <view class="image-wrapper">
+                            <image src="http://192.168.110.100:1314/images/product/01.png" mode="widthFix"></image>
+                        </view>
+                        <view class='content-wrapper'>
+                            <text class='name ellipsis'>小米电视4A 55英寸</text>
+                            <text class="brief ellipsis">极致超窄边框，4K超高清，蓝牙语音遥控，人工智能操作系统</text>
+                            <text class="price">￥1599</text>
+                            <view class="bottom">
+                                <text class="rate">2474条评论</text>
+                                <text class="sale">销量：534件</text>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <view class="image-wrapper">
+                            <image src="http://192.168.110.100:1314/images/product/02.png" mode="widthFix"></image>
+                        </view>
+                        <view class='content-wrapper'>
+                            <text class='name ellipsis'>小米电视4C 32英寸</text>
+                            <text class="brief ellipsis">卧室推荐，人工智能系统</text>
+                            <text class="price">￥599</text>
+                            <view class="bottom">
+                                <text class="rate">2887条评论</text>
+                                <text class="sale">销量：254件</text>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <view class="image-wrapper">
+                            <image src="http://192.168.110.100:1314/images/product/03.png" mode="widthFix"></image>
+                        </view>
+                        <view class='content-wrapper'>
+                            <text class='name ellipsis'>小米电视4A 60英寸</text>
+                            <text class="brief ellipsis">4K HDR 超高清/ 人工智能语音 / 2G+8G大存储</text>
+                            <text class="price">￥1899</text>
+                            <view class="bottom">
+                                <text class="rate">688条评论</text>
+                                <text class="sale">销量：65件</text>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator>
+                        <view class="image-wrapper">
+                            <image src="http://192.168.110.100:1314/images/product/04.png" mode="widthFix"></image>
+                        </view>
+                        <view class='content-wrapper'>
+                            <text class='name ellipsis'>小米电视4C 43英寸</text>
+                            <text class="brief ellipsis">人工智能，钢琴烤漆，杜比音效，杜比音效，海量片源</text>
+                            <text class="price">￥999</text>
+                            <view class="bottom">
+                                <text class="rate">2738条评论</text>
+                                <text class="sale">销量：1000件</text>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

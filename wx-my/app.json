@@ -1,0 +1,60 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/category/category",
+        "pages/taste/taste",
+        "pages/cart/cart",
+        "pages/profile/profile",
+        "pages/list/list",
+        "pages/detail/detail",
+        "pages/order_confirm/order_confirm",
+        "pages/order/order",
+        "pages/address/address",
+        "pages/pay/pay",
+        "pages/address_edit/address_edit",
+        "pages/profile_edit/profile_edit"
+    ],
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "color": "#000000",
+        "selectedColor": "#cc0000",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "主页",
+                "iconPath": "/images/icons/home.png",
+                "selectedIconPath": "/images/icons/home_SL.png"
+            },
+            {
+                "pagePath": "pages/category/category",
+                "text": "分类",
+                "iconPath": "/images/icons/category.png",
+                "selectedIconPath": "/images/icons/category_SL.png"
+            },
+            {
+                "pagePath": "pages/taste/taste",
+                "text": "品味",
+                "iconPath": "/images/icons/taste.png",
+                "selectedIconPath": "/images/icons/taste_SL.png"
+            },
+            {
+                "pagePath": "pages/cart/cart",
+                "text": "购物车",
+                "iconPath": "/images/icons/cart.png",
+                "selectedIconPath": "/images/icons/cart_SL.png"
+            },
+            {
+                "pagePath": "pages/profile/profile",
+                "text": "个人中心",
+                "iconPath": "/images/icons/profile.png",
+                "selectedIconPath": "/images/icons/profile_SL.png"
+            }
+        ]
+    },
+    "window": {
+        "navigationBarBackgroundColor": "#b0b0b0",
+        "navigationBarTitleText": "小米",
+        "navigationBarTextStyle": "white"
+    }
+}

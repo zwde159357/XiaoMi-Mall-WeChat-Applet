@@ -1,0 +1,4 @@
+@import "./static/fonts/iconfont.wxss";
+@import "./static/my_fonts/iconfont.wxss";
+.ellipsis { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.hide-scroll::-webkit-scrollbar { display: none; }

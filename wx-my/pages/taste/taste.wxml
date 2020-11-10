@@ -1,0 +1,58 @@
+<view class="taste-wrapper">
+    <view class="detail-null"></view>
+        <view class="detail-other">
+            <text class="other">您可能还喜欢</text>
+        </view>
+    <view class="detail-null"></view>
+
+    <view class="detail-recommend">
+        <view class="item">
+            <navigator>
+                <image src="http://192.168.110.100:1314/images/product/01.png" mode="widthFix"></image>
+                <text class="name">小米电视4A 55英寸</text>
+                <text class="brief">极致超窄边框，4K超高清</text>
+                <text class="price">￥1599</text>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator>
+                <image src="http://192.168.110.100:1314/images/product/02.png" mode="widthFix"></image>
+                <text class="name">小米电视4C 32英寸</text>
+                <text class="brief">卧室推荐，人工智能系统</text>
+                <text class="price">￥599</text>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator>
+                <image src="http://192.168.110.100:1314/images/product/03.png" mode="widthFix"></image>
+                <text class="name">小米电视4A 60英寸</text>
+                <text class="brief">4K HDR 超高清/ 人工智能语音</text>
+                <text class="price">￥1899</text>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator>
+                <image src="http://192.168.110.100:1314/images/product/04.png" mode="widthFix"></image>
+                <text class="name">小米电视4A 55英寸</text>
+                <text class="brief">极致超窄边框，4K超高清</text>
+                <text class="price">￥1599</text>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator>
+                <image src="http://192.168.110.100:1314/images/product/05.png" mode="widthFix"></image>
+                <text class="name">小米电视4C 43英寸</text>
+                <text class="brief">人工智能，钢琴烤漆，杜比音效</text>
+                <text class="price">￥999</text>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator>
+                <image src="http://192.168.110.100:1314/images/product/06.png" mode="widthFix"></image>
+                <text class="name">小米电视4A 70英寸</text>
+                <text class="brief ellipsis">内置小爱同学，海量片源</text>
+                <text class="price">￥2999</text>
+            </navigator>
+        </view>
+    </view>
+</view>

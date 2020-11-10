@@ -1,0 +1,6 @@
+module.exports.tipText = function(isLoading, list, hasMore) {
+    if(isLoading) return "加载中..";
+    else if(list.length === 0) return "暂无相关商品，敬请期待..";
+    else if(hasMore) return "上拉加载更多..";
+    else return "已到达底部..";
+};

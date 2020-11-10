@@ -1,0 +1,151 @@
+{
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": []
+    },
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": false,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": false,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "useMultiFrameRuntime": false,
+        "useApiHook": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "useIsolateContext": true,
+        "useCompilerModule": true,
+        "userConfirmedUseCompilerModuleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": []
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.13.1",
+    "appid": "wx7a776c3d084a0b8a",
+    "projectname": "wx-my",
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "scripts": {},
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "id": -1,
+                    "name": "pages/list/list",
+                    "pathName": "pages/list/list",
+                    "query": "id=17",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/detail/detail",
+                    "pathName": "pages/detail/detail",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/login/login",
+                    "pathName": "pages/login/login",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 3,
+                    "name": "pages/taste/taste",
+                    "pathName": "pages/taste/taste",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/cart/cart",
+                    "pathName": "pages/cart/cart",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/profile/profile",
+                    "pathName": "pages/profile/profile",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/address/address",
+                    "pathName": "pages/address/address",
+                    "query": "ids=49,50",
+                    "scene": null
+                },
+                {
+                    "name": "pages/category/category",
+                    "pathName": "pages/category/category",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/pay/pay",
+                    "pathName": "pages/pay/pay",
+                    "query": "id=MI11570129",
+                    "scene": null
+                },
+                {
+                    "name": "pages/order/order",
+                    "pathName": "pages/order/order",
+                    "query": "id=MI31182522",
+                    "scene": null
+                },
+                {
+                    "name": "pages/order/order",
+                    "pathName": "pages/order/order",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/order_confirm/order_confirm",
+                    "pathName": "pages/order_confirm/order_confirm",
+                    "query": "ids=8",
+                    "scene": null
+                },
+                {
+                    "name": "pages/home/home",
+                    "pathName": "pages/home/home",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/order_confirm/order_confirm",
+                    "pathName": "pages/order_confirm/order_confirm",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<!--pages/rate/index.wxml-->
+<view class="container">
+    <view class="header"><text class="title">个人信息修改</text></view>
+    <view class="name-wrapper">
+        <text class="name">昵称：</text>
+        <input type="text" bindinput="setName" class="input"
+        value="{{profile.nick_name}}"></input>
+    </view>
+    
+    <view class="avatar">头像</view>
+    <view class="image-list-wrapper">
+        <view class="image-wrapper">
+            <image src="{{profile.avatar2 || './user_default.jpg'}}" mode="aspectFit" class="image" 
+            bindtap="previewImage"></image>
+        </view>
+        <view class="image-wrapper">
+            <text class="btn" bindtap="chooseImage">+ 选择图片</text>
+        </view>
+    </view>
+    <view class="btn-wrapper">
+        <text class="upLoad" bindtap="updateUserInfo">更新</text>
+    </view>
+
+    <view class="preview-wrapper" hidden="{{ !preview.show }}">
+        <image class="big-image" src="{{preview.src}}" mode="aspectFit"></image>
+        <text class="empty" hidden="{{ preview.src !== '' }}">默认头像，无法预览</text>
+        <text bindtap="resumeImage" class="resume" hidden="{{ profile.avatar === profile.avatar2 }}">恢复</text>
+        <text bindtap="quitImage" class="quit">退出</text>
+    </view>
+</view>
+

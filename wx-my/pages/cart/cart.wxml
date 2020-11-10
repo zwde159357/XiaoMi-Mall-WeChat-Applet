@@ -1,0 +1,174 @@
+<wxs src="../../app.wxs" module="appWxs"></wxs>
+<view class="page-container">
+    <view class="page-header {{ showTop ? 'active' : '' }}">
+        <text class="iconfont icon-arrow-left icon"></text>
+        <text class="title">购物车</text>
+        <text class="edit" bindtap="beginEdit">{{!isEdit ? '编辑' : '完成'}}</text>
+    </view>
+    <view class="page-content">
+        <view class="detail">
+            <view class="detail-top">
+                <text class="iconfont icon-arrow-left icon"></text>
+                <text class="title">购物车</text>
+                <text class="edit" bindtap="beginEdit">{{!isEdit ? '编辑' : '完成'}}</text>
+            </view>
+            <view class="cart-top">
+                <view class="left-wrapper normal {{ !isEdit ?'active' : '' }}">
+                    <image src="http://192.168.110.100:1314/images/cart/icon_check_red.png" mode="widthFix" class="{{ isBuyAllChecked ? 'active' : '' }}" bindtap="checkAllBuy"></image>
+                    <image src="http://192.168.110.100:1314/images/cart/icon_uncheck.png" mode="widthFix" class="{{ !isBuyAllChecked ? 'active' : '' }}" bindtap="checkAllBuy"></image>
+                    <text>小米自营</text>
+                </view>
+                <view class="left-wrapper edit {{ isEdit ?'active' : '' }}">
+                    <image src="http://192.168.110.100:1314/images/cart/icon_check_red.png" mode="widthFix" class="{{ isDelAllChecked ? 'active' : '' }}" bindtap="checkAllDel"></image>
+                    <image src="http://192.168.110.100:1314/images/cart/icon_uncheck.png" mode="widthFix" class="{{ !isDelAllChecked ? 'active' : '' }}" bindtap="checkAllDel"></image>
+                    <text>小米自营</text>
+                </view>
+                <view class="right-wrapper">
+                    <image src="http://192.168.110.100:1314/images/cart/icon_tip_black.png" mode="widthFix"></image>
+                    <text class="detail">已免运费</text>
+                </view>
+            </view>
+            <view class="wrapper">
+                <view class="cart-list">
+                    <view class="item" wx:for="{{ list }}" wx:key="id">
+                        <view class="detail-content">
+                            <view class="image normal {{ !isEdit ?'active' : '' }}" mode="wdithFix">
+                                <image src="http://192.168.110.100:1314/images/cart/icon_check_red.png" mode="widthFix" class="{{ item.isBuyChecked ? 'active' : '' }}" bindtap="checkBuy" data-item="{{ item }}"></image>
+                                <image src="http://192.168.110.100:1314/images/cart/icon_uncheck.png" mode="widthFix" class="{{ !item.isBuyChecked ? 'active' : '' }}" bindtap="checkBuy" data-item="{{ item }}"></image>
+                            </view>
+                            <view class="image edit {{ isEdit ?'active' : '' }}" mode="wdithFix">
+                                <image src="http://192.168.110.100:1314/images/cart/icon_check_red.png" mode="widthFix" class="{{ item.isDelChecked ? 'active' : '' }}" bindtap="checkDel" data-item="{{ item }}"></image>
+                                <image src="http://192.168.110.100:1314/images/cart/icon_uncheck.png" mode="widthFix" class="{{ !item.isDelChecked ? 'active' : '' }}" bindtap="checkDel" data-item="{{ item }}"></image>
+                            </view>
+                            <view class="product">
+                                <navigator>
+                                    <image src="{{ appWxs.pathResolve(item.avatar) }}" mode="widthFix"></image>
+                                </navigator>
+                                <view class="text">
+                                    <text class="name">{{ item.name }}</text>
+                                    <view class="price-count">
+                                        <text class="price">￥{{ item.price }}</text>
+                                        <mi-count count="{{ item.count }}"
+                                        bindincrease="increaseHandler" data-item="{{ item }}"
+                                        binddecrease="decreaseHandler"></mi-count>
+                                    </view>
+                                </view> 
+                            </view>
+                        </view>
+                        <view class="service">
+                            <text class="left">服务</text>
+                            <text class="middle">安装服务|延长保障</text>
+                            <text class="right">选服务</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="detail-empty {{ list.length !== 0 ? '' : 'active' }}">
+            <image src="http://192.168.110.100:1314/images/cart/no_result_cart.png" mode="widthFix"></image>
+            <text class="text">购物车还没有商品~</text>
+            <text class="btn-go">去逛逛</text>
+        </view>
+        <view class="recommend">
+            <image src="http://192.168.110.100:1314/images/cart/recheader_left.png" mode="widthFix" class="left"></image>
+            <text>为你推荐</text>
+            <image src="http://192.168.110.100:1314/images/cart/recheader_right.png" mode="widthFix" class="right"></image>
+        </view>
+        <view class="product-wrapper">
+            <view class="content-wrapper card">
+                <navigator>
+                    <view class="wrapper">
+                        <view class="image-wrapper">
+                        <image src="http://192.168.110.100:1314/images/product/01.png" mode="widthFix"></image>
+                        </view>
+                        <view class="content">
+                            <text class="name ellipsis">小米电视4A 55英寸</text>
+                            <text class="brief ellipsis">极致超窄边框，4K超高清，蓝牙语音遥控，人工智能操作系统</text>
+                            <text class="price">￥1599</text>
+                            <view class="bottom">
+                                <text class="rate">2474条评论</text>
+                                <text class="sale">销量：534件</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <navigator>
+                    <view class="wrapper">
+                        <view class="image-wrapper">
+                        <image src="http://192.168.110.100:1314/images/product/02.png" mode="widthFix"></image>
+                        </view>
+                        <view class="content">
+                            <text class="name ellipsis">小米电视4C 32英寸</text>
+                            <text class="brief ellipsis">卧室推荐，人工智能系统</text>
+                            <text class="price">￥599</text>
+                            <view class="bottom">
+                                <text class="rate">2887条评论</text>
+                                <text class="sale">销量：245件</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <navigator>
+                    <view class="wrapper">
+                        <view class="image-wrapper">
+                        <image src="http://192.168.110.100:1314/images/product/03.png" mode="widthFix"></image>
+                        </view>
+                        <view class="content">
+                            <text class="name ellipsis">小米电视4A 60英寸</text>
+                            <text class="brief ellipsis">4K HDR 超高清/ 人工智能语音 / 2G+8G大存储</text>
+                            <text class="price">￥1899</text>
+                            <view class="bottom">
+                                <text class="rate">688条评论</text>
+                                <text class="sale">销量：65件</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <navigator>
+                    <view class="wrapper">
+                        <view class="image-wrapper">
+                        <image src="http://192.168.110.100:1314/images/product/04.png" mode="widthFix"></image>
+                        </view>
+                        <view class="content">
+                            <text class="name ellipsis">小米电视4C 43英寸</text>
+                            <text class="brief ellipsis">人工智能，钢琴烤漆，杜比音效，杜比音效，海量片源</text>
+                            <text class="price">￥999</text>
+                            <view class="bottom">
+                                <text class="rate">2738条评论</text>
+                                <text class="sale">销量：1000件</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="page-footer normal {{ !isEdit ?'active' : '' }}">
+        <view class="left">
+            <view class="select-wrapper">
+                <image src="http://192.168.110.100:1314/images/cart/icon_check_red.png" mode="widthFix" class="{{ isBuyAllChecked ? 'active' : '' }}" bindtap="checkAllBuy"></image>
+                <image src="http://192.168.110.100:1314/images/cart/icon_uncheck.png" mode="widthFix" class="{{ !isBuyAllChecked ? 'active' : '' }}" bindtap="checkAllBuy"></image>
+                <text>全选</text>
+            </view>
+            <view class="account-wrapper">
+                <text class="title">合计：</text>
+                <text class="account">￥{{ account }}</text>
+            </view>
+        </view>
+        <view class="right">
+            <text class="button-settle" bindtap="settle">结算(<text class="count">{{ countAll }}</text>)</text>
+        </view>
+    </view>
+    <view class="page-footer edit {{ isEdit ?'active' : '' }}">
+        <view class="left">
+            <view class="select-wrapper">
+                <image src="http://192.168.110.100:1314/images/cart/icon_check_red.png" mode="widthFix" class="{{ isDelAllChecked ? 'active' : '' }}" bindtap="checkAllDel"></image>
+                <image src="http://192.168.110.100:1314/images/cart/icon_uncheck.png" mode="widthFix" class="{{ !isDelAllChecked ? 'active' : '' }}" bindtap="checkAllDel"></image>
+                <text>全选</text>
+            </view>
+        </view>
+        <view class="right">
+            <text class="button-settle" bindtap="remove">删除</text>
+        </view>
+    </view>
+</view>

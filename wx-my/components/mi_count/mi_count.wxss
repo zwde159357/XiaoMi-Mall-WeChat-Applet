@@ -1,0 +1,28 @@
+/* components/mi_count/mi_count.wxss */
+
+.count-wrapper {
+    width: 216rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mi-btn {
+    flex-shrink: 0;
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    font-size: 40rpx;
+}
+
+.count {
+    flex-shrink: 0;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    width: 96rpx;
+    color: black;
+    font-size: 32rpx;
+    background-color: rgb(244,244,244);
+}
